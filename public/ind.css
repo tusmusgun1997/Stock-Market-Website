@@ -1,0 +1,117 @@
+
+body{
+
+  position: relative;
+  background-image: url('bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+table {
+    border: 1px solid black;
+    width : 80%;
+    height : 1000px;
+    background-color: white;
+    margin : 0 auto;
+
+  }
+
+th {
+    height: 70px;
+    background-color: #354f52;
+    color : white;
+    font-size: 20px;
+    border-radius: 6%;
+  }
+  td{
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 6%;
+    font-weight: bold;
+  }
+  a{
+      text-decoration: none;
+  }
+
+  
+  #CloseUp{
+    color : green;
+  }
+  
+  #CloseDown{
+    color : red;
+  }
+  
+img{
+  height : 70px;
+  width : 140px
+
+}
+
+section{
+  text-align: center;
+
+}
+.thisStock{
+  color : white;
+  text-align: center;
+}
+#Graph{
+
+  margin : 0 auto;
+  background-color: aliceblue;
+  width : 80%;
+  border-radius:5%;
+}
+
+.times{
+  width: 100%;
+  height: 100px;
+  text-align: center;
+
+}
+
+.times button{
+  border: 2px solid white;
+  margin : 0 10px;
+  padding : 4px;
+  border-radius: 14%;
+  background-color:#b5e48c;
+}
+
+.times button a{
+  font-weight: bold;
+  color : black;
+}
+
+.logo a{
+  color: white;
+}
+
+.foot{
+  color: white;
+} 
+ .nav{
+  width : 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin : 0 auto;
+}
+
+.nav a{
+  font-size: 20px;
+  text-decoration: none;
+  color : white;
+}
+
+.heading{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+width : 70%;
+}
+.tv a{
+  color: white;
+}

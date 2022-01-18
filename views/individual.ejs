@@ -1,0 +1,189 @@
+<%- include('partials/ind') %>
+<% let days=individual[0]['Data'].length %>
+
+
+
+
+<body>
+
+    <div class="logo">
+        <a href="http://localhost:3000"><img src="logoclean.png" alt=""></a>
+    </div>
+
+    <%- include('partials/navbar_partial') %>
+
+
+    <h2 class="thisStock">
+        <%= individual[0]['Symbol'] %>
+    </h2>
+
+
+
+    <div class="times">
+        <button><a href="http://localhost:3000/stock/<%= individual[0]['Symbol'] %>/5">5D</a></button>
+        <button><a href="http://localhost:3000/stock/<%= individual[0]['Symbol'] %>/30">30D</a></button>
+        <button><a href="http://localhost:3000/stock/<%= individual[0]['Symbol'] %>/100">100D</a></button>
+        <button><a href="http://localhost:3000/stock/<%= individual[0]['Symbol'] %>/150">150D</a></button>
+    </div>
+    <div id="Graph">
+        <canvas id="myChart" width="600" height="300"></canvas>
+    </div>
+
+    <br>
+    <br>
+
+
+    <br>
+    <br>
+
+    <div class="tv">
+        <a href="https://in.tradingview.com/chart/h6CBSEyS/?symbol=NSE%3A<%=individual[0]['Symbol'] %>" target="_blank">
+            Go to Trading
+            View</a>
+    </div>
+
+
+    <section>
+
+
+
+
+
+
+
+
+        <table>
+            <tr>
+                <th>DATE</th>
+                <th>OPEN</th>
+                <th>HIGH</th>
+                <th>LOW</th>
+                <th>CLOSE</th>
+                <th>VOLUME</th>
+            </tr>
+            <% var Close=0 ;%>
+            <% var base=[] ;%>
+            <% var prices = []; %>
+
+
+
+
+            <% if(days> 200) { %>
+            <% for (let i=days - 30 ; i <days ;i++) { %>
+
+
+            <tr>
+                <td>
+                    <%= individual[0]['Data'][i]['Date'].slice(0,10) %>
+                </td>
+                <td>
+                    <%= Math.round(individual[0]['Data'][i]['Open'] * 10) / 10 %>
+                </td>
+                <td>
+                    <%= Math.round(individual[0]['Data'][i]['High'] * 10 )/ 10 %>
+                </td>
+                <td>
+                    <%= Math.round(individual[0]['Data'][i]['Low'] * 10 )/ 10 %>
+                </td>
+
+                <% var curr=Math.round(individual[0]['Data'][i]['Close'] * 10 )/ 10 %>
+                <% prices.push(curr) %>
+
+                <% base.push(individual[0]['Data'][i]['Date'].slice(0,10)) %>
+
+                <% if(curr> Close) { %>
+                <td id="CloseUp">
+                    <%= Math.round(individual[0]['Data'][i]['Close'] * 10 )/ 10 %>
+                </td>
+                <% } else { %>
+
+                <td id="CloseDown">
+                    <%= Math.round(individual[0]['Data'][i]['Close'] * 10 )/ 10
+                                                                %>
+                </td>
+                <% } %>
+
+                <% Close=curr %>
+
+
+                <td>
+                    <%= individual[0]['Data'][i]['Volume'] %>
+                </td>
+            </tr>
+
+            <% } %>
+            <% } %>
+        </table>
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+        var slicing = 30;
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: `<%=base%>`.split(",").slice(-slicing),
+                datasets: [{
+                    label: 'CHART ',
+                    fill: {
+                        target: 'origin',
+                        above: 'rgb(255, 0, 0)'
+
+                    },
+                    data: '<%=prices %>'.split(",").slice(-slicing),
+                    pointRadius: 0,
+
+                    backgroundColor: 'black'
+
+                }]
+            },
+
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+
+        });
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

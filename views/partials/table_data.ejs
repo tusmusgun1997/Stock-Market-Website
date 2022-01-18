@@ -1,0 +1,44 @@
+<% let total =individual[0]['Data'].length %>
+
+<% for (let i=total - 30 ; i <total ;i++) { %>
+
+<tr>
+    <td>
+        <%= individual[0]['Data'][i]['Date'].slice(0,10) %>
+    </td>
+    <td>
+        <%= Math.round(individual[0]['Data'][i]['Open'] * 10) / 10 %>
+    </td>
+    <td>
+        <%= Math.round(individual[0]['Data'][i]['High'] * 10 )/ 10 %>
+    </td>
+    <td>
+        <%= Math.round(individual[0]['Data'][i]['Low'] * 10 )/ 10 %>
+    </td>
+
+    <% var curr=Math.round(individual[0]['Data'][i]['Close'] * 10 )/ 10 %>
+
+
+
+
+    <% if(curr> Close) { %>
+    <td id="CloseUp">
+        <%= Math.round(individual[0]['Data'][i]['Close'] * 10 )/ 10 %>
+    </td>
+    <% } else { %>
+
+    <td id="CloseDown">
+        <%= Math.round(individual[0]['Data'][i]['Close'] * 10 )/ 10
+                                                    %>
+    </td>
+    <% } %>
+
+    <% Close=curr %>
+
+
+    <td>
+        <%= individual[0]['Data'][i]['Volume'] %>
+    </td>
+</tr>
+
+<% } %>

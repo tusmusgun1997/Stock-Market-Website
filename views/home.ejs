@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+
+</head>
+
+
+<body>
+
+    <div class="logo">
+
+        <a href="http://localhost:3000"><img src="logoclean.png" alt=""></a>
+    </div>
+
+    <br>
+    <br>
+
+    <%- include('partials/navbar_partial') %>
+
+
+
+    <h1 class="N50">NIFTY 50 CONSTITUENTS</h1>
+
+    <section>
+        <div class="tab">
+
+            <table>
+                <tr>
+
+
+                    <th>NAME</th>
+                    <th>DATE</th>
+                    <th>OPEN</th>
+                    <th>HIGH</th>
+                    <th>LOW</th>
+                    <th>CLOSE</th>
+                    <th>VOLUME</th>
+                </tr>
+                <br>
+
+                <% for (let i=0; i < 50; i++) {%>
+
+                <% let days=hist[i]['Data'].length %>
+                <tr>
+                    <td id="Name">
+                        <b>
+                            <a id="stocklink" href="http://localhost:3000/stock?sym=<%= hist[i]['Symbol'] %>">
+                                <%= hist[i]['Symbol'] %>
+                            </a>
+                        </b>
+                    </td>
+                    <td>
+                        <%= hist[i]['Data'][days-1]['Date'].slice(0,10) %>
+                    </td>
+                    <td>
+                        <%= hist[i]['Data'][days-1]['Open'] %>
+                    </td>
+                    <td>
+                        <%= hist[i]['Data'][days-1]['High'] %>
+                    </td>
+                    <td>
+                        <%= hist[i]['Data'][days-1]['Low'] %>
+                    </td>
+                    <td>
+                        <%= hist[i]['Data'][days-1]['Close'] %>
+                    </td>
+                    <td>
+                        <%= hist[i]['Data'][days-1]['Volume'] %>
+                    </td>
+                </tr>
+                <% } %>
+
+
+            </table>
+        </div>
+
+        <div>
+            <% for (let j=2 ; j < 17 ; j++) {%>
+            <a id="nextpage" href="/">
+                <%= j %>
+            </a>
+            <% } %>
+        </div>
+
+
+    </section>
+
+
+</body>
+
+</html>

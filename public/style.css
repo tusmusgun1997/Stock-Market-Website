@@ -1,0 +1,99 @@
+body{
+  background-image: url('bg.jpg');
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+}
+table {
+    border: 1px solid black;
+    width : 80%;
+    height : 800px;
+    background-color: white;
+
+  }
+
+th {
+    height: 70px;
+    background-color: #52796f;
+    color : white;
+    font-size: 20px;
+    border-radius: 6%;
+  }
+  td{
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 6%;
+    font-weight: bold;
+  }
+  th {
+    border: 1px solid black;
+    
+  }
+#Name{
+  background-color: #354f52;
+  color : white;
+  
+}
+
+#Name:hover{
+  background-color: #52796f;;
+
+
+}
+td:hover{
+
+  color : white;
+  background-color: black;
+}
+
+
+#stocklink{
+  text-decoration: none;
+  color : white;
+}
+
+p{
+  display: inline-block;
+}
+
+#nextpage{
+  text-decoration: none;
+}
+
+img{
+  height : 70px;
+  width : 140px
+
+}
+
+section {
+  margin-left : 200px;
+  text-align: center;
+}
+
+.N50{
+  text-align: center;
+  color: white;
+}
+.nav{
+  width : 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin : 0 auto;
+}
+
+.nav a{
+  font-size: 20px;
+  text-decoration: none;
+  color : white;
+}
+
+.heading{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+width : 70%;
+}
